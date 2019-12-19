@@ -24,4 +24,4 @@ Simple Python Application For CRUD operations through SQLite.
 
 
 ### Demo
-![alt text]( "Node File Explorer")
+![alt text](https://user-images.githubusercontent.com/16520789/71201563-54cce200-22c0-11ea-97c2-5dd89637ca5a.png "Node File Explorer")
