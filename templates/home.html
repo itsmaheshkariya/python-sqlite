@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-4">
+        {% if page == 'home' %}
+        <form action="/" method="POST" class="form-group">
+        {% endif %}
+        {% if page == 'updatehome' %}
+        <form action="/update/{{user.id}}" method="POST" class="form-group">
+        {% endif %}
+        
+        
+        <div class="form-group">
+            <label for="">Firstname</label>
+            <input type="text" name="firstname" class="form-control" value={{user.firstname}}>
+        </div>
+        <div class="form-group">
+            <label for="">Lastname</label>
+            <input type="text" name="lastname" class="form-control" value={{user.lastname}}>
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" name="email" class="form-control" value={{user.email}}>
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="text" name="password" class="form-control" value={{user.password}}>
+        </div>
+        <button class="btn btn-block btn-dark">Submit</button>
+       
+        </form>
+    </div>
+    <div class="col-lg-8">
+        <table class="table">
+            <thead>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Delete</th>
+                <th>Update</th>
+
+            </thead>
+            <tbody>
+                {% for i in user1s %}
+                <tr>
+                    <td>{{ i.firstname }}</td>
+                    <td>{{ i.lastname }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.password }}</td>
+                    <td>
+                        <a href='/delete/{{i.id}}' class="btn btn-sm btn-dark">Delete</a>
+                    </td>
+                    <td>
+                        <a href='/update/{{i.id}}' class="btn btn-sm btn-dark">Update</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
